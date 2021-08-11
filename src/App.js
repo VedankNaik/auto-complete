@@ -31,21 +31,25 @@ function App() {
   }
 
   return (
-    <div className="container">     
-      <input type="text" className="col-md-12 input" style={{ marginTop: 200 }}     
-      onChange={e => onChangeHandler(e.target.value)}
-      value={text}
-      onBlur={() =>{
-        setTimeout(() =>{
-          setSuggestions();
-        }, 100);
-      }}
-      />
-      {suggestions && suggestions.map((suggestion, i) =>
-        <div key={i} className="suggestion col-md-12 justify-content-md-center"
-          onClick={()=>onSuggestHandler(suggestion.email)}
-        >{suggestion.email}</div>
-      )}
+    <div>
+    <div className="test">
+      <div className="box">
+        <input type="text" className="col-md-12 input" placeholder="Enter Email"  
+        onChange={e => onChangeHandler(e.target.value)}
+        value={text}
+        onBlur={() =>{
+          setTimeout(() =>{
+            setSuggestions();
+          }, 100);
+        }}
+        />
+        {suggestions && suggestions.map((suggestion, i) =>
+          <div key={i} className="suggestion col-md-12 justify-content-md-center"
+            onClick={()=>onSuggestHandler(suggestion.email)}
+          >{suggestion.email}</div>
+        )}
+      </div>     
+      </div>
     </div>
   );
 }
